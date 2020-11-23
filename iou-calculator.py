@@ -29,6 +29,13 @@ class Receipt:
     def calculate_total(self):
         self.total = sum([item[1] for item in self.items])
 
+    def define_payer(self, group):
+        payer = input('Who paid for this receipt? ')
+        while payer not in [person.name for person in group]:
+            payer = input(f'`{payer}` is not in your group. Try again: ')
+
+        self.paid_by = payer
+
     def print(self):
         print()
         print(f'Receipt ID: {self.id}')
@@ -67,6 +74,7 @@ def main():
     print(f'Your Group ({num_people} people):')
     for person in group:
         print(' * ' + person.name)
+    print()
 
     # Prompt for receipts
 
