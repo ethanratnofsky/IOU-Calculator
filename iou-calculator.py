@@ -150,9 +150,10 @@ def main():
     print(f'Each person should have spent ${expected_payment_per_person:.2f}')
     print()
 
-    # Calculate debt of each person
+    # Calculate debt of each person, and print each person's information
     for person in group:
         person.calculate_debt(expected_payment_per_person)
+        person.print()
 
     # For each person in debt, determine and print how much they owe the people out of debt
     people_in_debt = [person for person in group if person.debt > 0]
