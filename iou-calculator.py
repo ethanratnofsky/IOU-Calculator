@@ -14,6 +14,13 @@ class Person:
     def calculate_debt(self, goal):
         self.debt = goal - self.amount_paid
 
+    def print(self):
+        print()
+        print(f'Name: {self.name}')
+        print(f'Amount paid: ${self.amount_paid:.2f}')
+        print(f'Debt: ${self.debt:.2f}')
+        print()
+
 
 # Create Receipt class
 class Receipt:
