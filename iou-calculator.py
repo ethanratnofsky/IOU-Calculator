@@ -74,6 +74,7 @@ def main():
     print(f'Your Group ({num_people} people):')
     for person in group:
         print(' * ' + person.name)
+    print()
 
     # Prompt for receipts
     receipts = []
