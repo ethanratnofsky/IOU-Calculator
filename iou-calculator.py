@@ -1,7 +1,8 @@
 # Program Name: IOU Calculator
+# Author: Ethan Ratnofsky
 # Program Description: This program calculates the debt of each person in a group based on the contents of receipts,
 #                      assuming the prices are split evenly.
-# Date: 11/22/2020
+# Date: 11/23/2020
 
 # Create Person class
 
