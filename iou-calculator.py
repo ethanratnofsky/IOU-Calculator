@@ -14,7 +14,38 @@ class Person:
     def calculate_debt(self, goal):
         self.debt = goal - self.amount_paid
 
-# Create Receipt class (could just be a dict, but may be nice to have accessor methods)
+# Create Receipt class
+class Receipt:
+    def __init__(self, receipt_id='NO ID SPECIFIED'):
+        self.id = receipt_id
+        self.items = list()
+        self.total = 0.00
+        self.paid_by = ''
+
+    def add_item(self, price, name='UNDEFINED ITEM'):
+        self.items.append((name, price))
+
+    def calculate_total(self):
+        self.total = sum([item[1] for item in self.items])
+
+    def print(self):
+        print()
+        print(f'Receipt ID: {self.id}')
+        print(f'# of items: {len(self.items)}')
+        print(f'Paid by: {self.paid_by}')
+
+        max_item_name_length = max([len(item[0]) for item in self.items])
+
+        print('-' * (max_item_name_length + 14))
+        print(f"| {'ITEM':^{max_item_name_length}} | {'PRICE':^7} |")
+
+        for item_name, item_price in self.items:
+            print('|' + '-' * (max_item_name_length + 12) + '|')
+            print(f'| {item_name:<{max_item_name_length}} | {item_price:>7} |')
+
+        print('-' * (max_item_name_length + 14))
+        print(f'TOTAL: ${self.total:.2f}')
+        print()
 
 
 def main():
