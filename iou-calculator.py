@@ -44,14 +44,14 @@ class Receipt:
 
         max_item_name_length = max([len(item[0]) for item in self.items])
 
-        print('-' * (max_item_name_length + 14))
-        print(f"| {'ITEM':^{max_item_name_length}} | {'PRICE':^7} |")
+        print('-' * (max_item_name_length + 15))
+        print(f"| {'ITEM':^{max_item_name_length}} | {'PRICE':^8} |")
 
         for item_name, item_price in self.items:
-            print('|' + '-' * (max_item_name_length + 12) + '|')
-            print(f'| {item_name:<{max_item_name_length}} | {item_price:>7} |')
+            print('|' + '-' * (max_item_name_length + 13) + '|')
+            print(f'| {item_name:<{max_item_name_length}} | ${item_price:>7.2f} |')
 
-        print('-' * (max_item_name_length + 14))
+        print('-' * (max_item_name_length + 15))
         print(f'TOTAL: ${self.total:.2f}')
         print()
 
@@ -91,7 +91,7 @@ def main():
             print(f'Adding item #{item_num}...')
 
             item_name = input(f'(Item #{item_num}) Item name: ')
-            item_price = float(input(f'(Item #{item_num} Item price: '))
+            item_price = float(input(f'(Item #{item_num}) Item price: '))
 
             receipt.add_item(name=item_name, price=item_price)
 
