@@ -17,13 +17,13 @@ class Person:
 
 # Create Receipt class
 class Receipt:
-    def __init__(self, receipt_id='NO ID SPECIFIED'):
+    def __init__(self, receipt_id):
         self.id = receipt_id
         self.items = list()
         self.total = 0.00
         self.paid_by = ''
 
-    def add_item(self, price, name='UNDEFINED ITEM'):
+    def add_item(self, name, price):
         self.items.append((name, price))
 
     def calculate_total(self):
@@ -77,6 +77,48 @@ def main():
     print()
 
     # Prompt for receipts
+    receipts = []
+
+    add_new_receipt = True
+    while add_new_receipt:
+        receipt_id = input('New receipt ID: ')
+        receipt = Receipt(receipt_id)
+
+        # Add items
+        item_num = 1
+        add_new_item = True
+        while add_new_item:
+            print(f'Adding item #{item_num}...')
+
+            item_name = input(f'(Item #{item_num}) Item name: ')
+            item_price = float(input(f'(Item #{item_num} Item price: '))
+
+            receipt.add_item(name=item_name, price=item_price)
+
+            item_num += 1
+
+            # Prompt for another item
+            add_new_item_response = input('Add another item (y/n)? ').lower()
+            while add_new_item_response not in ('y', 'n'):
+                add_new_item_response = input('Add another item (y/n)? ').lower()
+
+            if add_new_item_response == 'n':
+                add_new_item = False
+
+        receipt.calculate_total()
+        receipt.define_payer(group)
+
+        receipts.append(receipt)
+
+        receipt.print()
+
+        # Prompt for another receipt
+        add_new_receipt_response = input('Add another receipt (y/n)? ').lower()
+        while add_new_receipt_response not in ('y', 'n'):
+            add_new_receipt_response = input('Add another receipt (y/n)? ').lower()
+
+        if add_new_receipt_response == 'n':
+            add_new_receipt = False
 
     # Calculate and print total amounts paid (by each person, and by group as a whole)
 
