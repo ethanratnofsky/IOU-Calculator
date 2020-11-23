@@ -137,6 +137,9 @@ def main():
         print(person.name, 'paid', f'${person.amount_paid:.2f}')
 
     # Calculate and print how much each person should have spent
+    expected_payment_per_person = group_total / num_people
+    print()
+    print(f'Each person should have spent ${expected_payment_per_person:.2f}')
 
     # Calculate debt of each person
 
