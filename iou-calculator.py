@@ -5,6 +5,14 @@
 # Date: 11/23/2020
 
 # Create Person class
+class Person:
+    def __init__(self, name):
+        self.name = name
+        self.amount_paid = 0.00
+        self.debt = 0.00
+
+    def calculate_debt(self, goal):
+        self.debt = goal - self.amount_paid
 
 # Create Receipt class (could just be a dict, but may be nice to have accessor methods)
 
