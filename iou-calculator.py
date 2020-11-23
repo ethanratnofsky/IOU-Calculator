@@ -1,5 +1,5 @@
 # Program Name: IOU Calculator
-# Program Description: This program calculates debt of each person in a group based on the contents of receipts,
+# Program Description: This program calculates the debt of each person in a group based on the contents of receipts,
 #                      assuming the prices are split evenly.
 # Date: 11/22/2020
 
