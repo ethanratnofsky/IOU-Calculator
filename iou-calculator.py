@@ -14,6 +14,7 @@ class Person:
     def calculate_debt(self, goal):
         self.debt = goal - self.amount_paid
 
+
 # Create Receipt class
 class Receipt:
     def __init__(self, receipt_id='NO ID SPECIFIED'):
@@ -50,10 +51,16 @@ class Receipt:
 
 def main():
     # Initialize list of people in group
+    group = list()
 
     # Prompt for number of people and names
+    num_people = int(input('How many people are in your group? '))
+    while num_people < 2:
+        num_people = int(input('You must have at least 2 people in the group. Try again: '))
 
-    # Initialize amounts_paid with names of people
+    for i in range(num_people):
+        name = input(f'Enter name for Person {i}: ')
+        group.append(Person(name))
 
     # Prompt for receipts
 
@@ -64,3 +71,7 @@ def main():
     # Calculate debt of each person
 
     # For each person in debt, determine and print how much they owe the people out of debt
+
+
+if __name__ == '__main__':
+    main()
