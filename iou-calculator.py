@@ -74,7 +74,6 @@ def main():
     print(f'Your Group ({num_people} people):')
     for person in group:
         print(' * ' + person.name)
-    print()
 
     # Prompt for receipts
     receipts = []
@@ -121,6 +120,21 @@ def main():
             add_new_receipt = False
 
     # Calculate and print total amounts paid (by each person, and by group as a whole)
+    for receipt in receipts:
+        payer = receipt.paid_by
+
+        for person in group:
+            if person.name == payer:
+                person.amount_paid += receipt.total
+
+    print()
+    group_total = sum([person.amount_paid for person in group])
+    print(f'GROUP TOTAL: ${group_total:.2f}')
+
+    print()
+    print('AMOUNTS PAID PER PERSON:')
+    for person in group:
+        print(person.name, 'paid', f'${person.amount_paid:.2f}')
 
     # Calculate and print how much each person should have spent
 
