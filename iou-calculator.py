@@ -141,6 +141,7 @@ def main():
     expected_payment_per_person = group_total / num_people
     print()
     print(f'Each person should have spent ${expected_payment_per_person:.2f}')
+    print()
 
     # Calculate debt of each person
     for person in group:
@@ -152,15 +153,16 @@ def main():
 
     for person_in_debt in people_in_debt:
         for person_owed in people_owed:
-            if person_in_debt.debt <= person_owed.debt:
+            # If current person in debt can give all their debt to current person owed...
+            if person_in_debt.debt <= -person_owed.debt:
                 print(f'{person_in_debt.name} owes {person_owed.name} ${-person_in_debt.debt:.2f}')
-                person_owed.debt -= person_in_debt.debt
+                person_owed.debt += person_in_debt.debt
                 person_in_debt.debt = 0
-                continue
+            # Else, if current person in debt should only give some of their debt to balance current person owed...
             else:
                 print(f'{person_in_debt.name} owes {person_owed.name} ${-person_owed.debt:.2f}')
+                person_in_debt.debt += person_owed.debt
                 person_owed.debt = 0
-                person_in_debt.debt -= person_owed.debt
 
 
 if __name__ == '__main__':
