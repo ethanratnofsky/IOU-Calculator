@@ -62,6 +62,12 @@ def main():
         name = input(f'Enter name for Person {i}: ')
         group.append(Person(name))
 
+    # Print group
+    print()
+    print(f'Your Group ({num_people} people):')
+    for person in group:
+        print(' * ' + person.name)
+
     # Prompt for receipts
 
     # Calculate and print total amounts paid (by each person, and by group as a whole)
