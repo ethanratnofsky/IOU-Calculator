@@ -19,7 +19,6 @@ class Person:
         print(f'Name: {self.name}')
         print(f'Amount paid: ${self.amount_paid:.2f}')
         print(f'Debt: ${self.debt:.2f}')
-        print()
 
 
 # Create Receipt class
@@ -148,12 +147,12 @@ def main():
     expected_payment_per_person = group_total / num_people
     print()
     print(f'Each person should have spent ${expected_payment_per_person:.2f}')
-    print()
 
     # Calculate debt of each person, and print each person's information
     for person in group:
         person.calculate_debt(expected_payment_per_person)
         person.print()
+    print()
 
     # For each person in debt, determine and print how much they owe the people out of debt
     people_in_debt = [person for person in group if person.debt > 0]
@@ -163,7 +162,7 @@ def main():
         for person_owed in people_owed:
             # If current person in debt can give all their debt to current person owed...
             if person_in_debt.debt <= -person_owed.debt:
-                print(f'{person_in_debt.name} owes {person_owed.name} ${-person_in_debt.debt:.2f}')
+                print(f'{person_in_debt.name} owes {person_owed.name} ${person_in_debt.debt:.2f}')
                 person_owed.debt += person_in_debt.debt
                 person_in_debt.debt = 0
             # Else, if current person in debt should only give some of their debt to balance current person owed...
